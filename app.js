@@ -35,8 +35,9 @@ const createGrid = async function createCards(){
     // human.fact = [(), (), ()];
     })(human);
   };
+  // const creatureArray = dinosaurs.splice(4, 0, human);
   //loop through array, create elements and add data
-      for (let i = 0; i < 9; i++) {
+      for (let i = 0; i < 8; i++) {
       const newCard = document.createElement('div');
       const cardTitle = document.createElement('h3');
       const cardPic = document.createElement('img');
@@ -50,13 +51,12 @@ const createGrid = async function createCards(){
 
       cardTitle.innerHTML = dino[i].species;
       cardPic.setAttribute('src', dino[i].image);
-
       //randomize a fact
       cardFact.innerHTML = dino[i].fact[Math.floor(Math.random() * dino[i].fact.length)];
       // create human card
           // return createCard(humanData());
           //add human to creatureArray
-        const creatureArray = dinosaurs.splice(4, 0, human);
+
           }
 
   }
@@ -94,7 +94,6 @@ const createGrid = async function createCards(){
 
         // Remove form from screen
     function toggleForm() {
-      console.log("hiding the form...")
       const toggleMe = document.getElementById('dino-compare');
       toggleMe.classList.add("hide")
       createGrid()
@@ -102,6 +101,5 @@ const createGrid = async function createCards(){
     // On button click, prepare and display infographic
     const compareMe = document.getElementById('btn');
     compareMe.addEventListener('click', function(e){
-      console.log("clicked!")
       toggleForm(); //Hide form
     });
