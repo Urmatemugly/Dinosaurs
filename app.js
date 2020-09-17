@@ -5,68 +5,74 @@ const gridItem = document.querySelector('.grid-item')
 // Generate Tiles for each Dino in Array
 const createGrid = async function createCards(){
   try {
-  //fetch dino.json
-  const dino = await fetch ("dino.json")
-  .then(result => result.json())
-  .then(result => result.Dinos);
-  // Create Dino Objects
-  //Create variable & map the dino array through Creatures constructor function
-  const dinosaurs = dino.map(dinosaurs => new Creature(
-    this.species,
-    this.weight,
-    this.height,
-    this.diet,
-    this.where,
-    this.when,
-    this.fact,
-    this.image
-  ));
+      //fetch dino.json
+      const dino = await fetch ("dino.json")
+        .then(result => result.json())
+        .then(result => result.Dinos);
+      // Create Dino Objects
+      //Create variable & map the dino array through Creatures constructor function
+      const dinosaurs = dino.map(dinosaurs => new Creature(
+        this.species,
+        this.weight,
+        this.height,
+        this.diet,
+        this.where,
+        this.when,
+        this.fact,
+        this.image
+          ));
+      //loop through array, create elements and add data
+      for (let i = 0; i < 8; i++) {
+        const newCard = document.createElement('div');
+        const cardTitle = document.createElement('h3');
+        const cardPic = document.createElement('img');
+        const cardFact = document.createElement('p');
+        // Add cards to the DOM
+        newCard.className = 'grid-item';
+        grid.appendChild(newCard);
+        newCard.appendChild(cardTitle);
+        newCard.appendChild(cardPic);
+        newCard.appendChild(cardFact);
+
+        cardTitle.innerHTML = dino[i].species;
+        cardPic.setAttribute('src', dino[i].image);
+        //randomize a fact
+        cardFact.innerHTML = dino[i].fact[Math.floor(Math.random() * dino[i].fact.length)];
+          }
+    //closing TRY statement
+      }
+  catch (err) {
+    console.log(err)
+    };
+}
+
+
   // Create Human Object
   const human = new Creature();
-    // Use IIFE to get human data from form
-  const humanData = () => {
+  // Use IIFE to get human data from form
   (function(human) {
-      human.image = "images/human.png";
-      human.species = document.getElementById('name').value;
-      human.diet = document.getElementById('diet').value;
-      human.weight = document.getElementById('weight').value;
-      human.feet = document.getElementById('feet').value;
-      human.inches = document.getElementById('inches').value;
-    // human.fact = [(), (), ()];
-    })(human);
-  };
-  // const creatureArray = dinosaurs.splice(4, 0, human);
-  //loop through array, create elements and add data
-      for (let i = 0; i < 8; i++) {
-      const newCard = document.createElement('div');
-      const cardTitle = document.createElement('h3');
-      const cardPic = document.createElement('img');
-      const cardFact = document.createElement('p');
-      // Add cards to the DOM
-      newCard.className = 'grid-item';
-      grid.appendChild(newCard);
-      newCard.appendChild(cardTitle);
-      newCard.appendChild(cardPic);
-      newCard.appendChild(cardFact);
+    human.image = "images/human.png";
+    human.species = document.getElementById('name').value;
+    human.diet = document.getElementById('diet').value;
+    human.weight = document.getElementById('weight').value;
+    const feet = document.getElementById('feet').value;
+    const inches = document.getElementById('inches').value;
+    human.height = feet + "'" + inches;
+  }(human));
 
-      cardTitle.innerHTML = dino[i].species;
-      cardPic.setAttribute('src', dino[i].image);
-      //randomize a fact
-      cardFact.innerHTML = dino[i].fact[Math.floor(Math.random() * dino[i].fact.length)];
-      // create human card
-          // return createCard(humanData());
-          //add human to creatureArray
-
-          }
-
-  }
-    //closing TRY statement
-    //log any error to the console
-  catch (err) {
-  console.log(err)
-  };
-  }
-
+  // const humanData = () => {
+  // (function(human) {
+  //     human..image = "images/human.png";
+  //     human..species = document.getElementById('name').value;
+  //     human.diet = document.getElementById('diet').value;
+  //     human.weight = document.getElementById('weight').value;
+  //     human.feet = document.getElementById('feet').value;
+  //     human.inches = document.getElementById('inches').value;
+  //   // human.fact = [(), (), ()];
+  //   //add human to array
+  //   dinosaurs.splice(4, 0, human);
+  //   })(human);
+  // };
 
   // Create Dino(/creature) Constructor function
   function Creature(species, weight, height, diet, where, when, fact, image) {
@@ -102,4 +108,5 @@ const createGrid = async function createCards(){
     const compareMe = document.getElementById('btn');
     compareMe.addEventListener('click', function(e){
       toggleForm(); //Hide form
+      // getHumanData(); //Retrieve user input
     });
