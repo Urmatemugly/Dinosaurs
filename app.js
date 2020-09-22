@@ -12,7 +12,7 @@ function Creature(species, weight, height, diet, where, when, fact, image) {
   this.when = when;
   this.fact = fact;
   this.image = image;
-  }
+};
 
 // Generate Tiles for each Dino in Array
 const createGrid = async function createGrid(){
@@ -35,7 +35,7 @@ try {
           dino.image
             ));
 
-//randomize facts from Array
+//randomize facts from Array; Source; https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array/23976260#23976260
 Creature.prototype.randomize = function() {
     return this.fact[Math.floor(Math.random() * this.fact.length)];
 };
@@ -53,7 +53,6 @@ Creature.prototype.randomize = function() {
           const inches = document.getElementById('inches').value;
           human.height = feet + "'" + inches;
         }(human));
-
 //add human to Array
         dinosaurs.splice(4, 0, human);
 // variable function for creating cards
@@ -108,7 +107,6 @@ const getCards = () => {
         cardFact.innerHTML = "";
       } else {
         dinosaursObj.fact.push(checkWeight(), checkDiet(), checkHeight());
-        // dinosaur[8].fact.splice(1, 3);
         cardFact.innerHTML = dinosaursObj.randomize();
         }
       }
@@ -129,3 +127,6 @@ const getCards = () => {
     compareMe.addEventListener('click', function(e){
       toggleForm(); //Hide form
     });
+
+
+// Sources; Knowledge posts (udacity), in particular student Typhaney; https://github.com/typhaneybdev/dino
