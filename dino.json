@@ -37,7 +37,7 @@
             "diet": "herbavor",
             "where": "North America",
             "when": "Late Jurasic",
-            "fact": ["An asteroid was named 9954 Brachiosaurus in 1991.","","",],
+            "fact": ["An asteroid was named 9954 Brachiosaurus in 1991.","The Brachiosaurus was found in North America","Was a herbavor"],
             "image": "images/brachiosaurus.png"
         },
         {
@@ -47,7 +47,7 @@
             "diet": "herbavor",
             "where": "North America, Europe, Asia",
             "when": "Late Jurasic to Early Cretaceous",
-            "fact": ["The Stegosaurus had between 17 and 22 seperate places and flat spines.","",""],
+            "fact": ["The Stegosaurus had between 17 and 22 seperate places and flat spines.","The Stegosaurus was found in multiple continents!","Are thought to have lived during the Late Jurassic Period"],
             "image": "images/stegosaurus.png"
         },
         {
@@ -57,7 +57,7 @@
             "diet": "carnivor",
             "where": "North America",
             "when": "Late Cretaceous",
-            "fact": ["Elasmosaurus was a marine reptile first discovered in Kansas.","", ""],
+            "fact": ["Elasmosaurus was a marine reptile first discovered in Kansas.","Was a Carnivor!", "Existed during the Late Cretaceous period"],
             "image": "images/elasmosaurus.png"
         },
         {
@@ -67,7 +67,7 @@
             "diet": "carnivor",
             "where": "North America",
             "when": "Late Cretaceous",
-            "fact": ["Actually a flying reptile, the Pteranodon is not a dinosaur.", "", "",],
+            "fact": ["Actually a flying reptile, the Pteranodon is not a dinosaur.", "Was found in North America", "Was a Carnivor!"],
             "image": "images/pteranodon.png"
         },
         {
