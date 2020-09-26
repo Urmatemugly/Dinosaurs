@@ -69,22 +69,26 @@ const createGrid = async function createGrid() {
         // Create Dino Compare Method 1
         const checkWeight = () => {
           if (dinosaurObj.weight > human.weight) {
-            return "'${dinosaurObj.species}' is '${dinosaurObj.weight - human.weight}' lbs more than '${human.species}'";
+            return `${dinosaurObj.species} weighed ${
+              dinosaurObj.weight - human.weight
+            } lbs more than ${human.species}`;
           } else if (human.weight > dinosaurObj.weight) {
-            return "'${human.species}' is '${human.species - dinosaurObj.weight}' lbs more than '${dinosaurObj.species}'";
+            return `${human.species} weighed ${
+              human.species - dinosaurObj.weight
+            } lbs more than ${dinosaurObj.species}`;
           }
         };
         // Create Dino Compare Method 2
         const checkDiet = () => {
           if (human.diet == "herbavor" && dinosaurObj.diet == "herbavor") {
-            return "'${human.species}' shares the same diet as '${dinosaurObj.species}'";
+            return `${dinosaurObj.species} was a herbavor too!`;
           } else if (
             human.diet == "carnivor" &&
             dinosaurObj.diet == "carnivor"
           ) {
-            return "'${human.species}' shares the same diet as '${dinosaurObj.species}'";
+            return `${dinosaurObj.species} also was a carnivor!`;
           } else {
-            return "None of our Dinosaurs share the same diet as '${human.species'";
+            return `${dinosaurObj.species} was known to be a ${dinosaurObj.diet}`;
           }
         };
         // Create Dino Compare Method 3
@@ -93,9 +97,13 @@ const createGrid = async function createGrid() {
           const humanInches =
             parseInt(human.feet * 12) + parseInt(human.inches);
           if (dinosaurObj.height > humanInches) {
-            return "'${dinosaurObj.species}' is  '${dinosaurObj.height - humanInches}' inches taller than '${human.species}'";
+            return `${dinosaurObj.species} is ${
+              dinosaurObj.height - humanInches
+            } inches taller than ${human.species}`;
           } else if (humanInches > dinosaurObj.height) {
-            return "'${human.species}' is  '${humanInches - dinosaurObj.height}' inches taller than '${dinosaurObj.species}'";
+            return `${human.species} is ${
+              humanInches - dinosaurObj.height
+            } inches taller than ${dinosaurObj.species}`;
           }
         };
         //empty human fact
@@ -108,15 +116,15 @@ const createGrid = async function createGrid() {
           cardFact.innerHTML = dinosaurObj.randomize();
         }
       }
-      getCards();
     };
+    getCards();
   } catch (error) {
     console.log("There seems to be an issue!", error);
   }
 };
 //randomize facts from Array; Source; https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array/23976260#23976260
 Creature.prototype.randomize = function () {
-  return this.fact[Math.floor(Math.random() * this.fact.length)];
+  return this.fact[Math.floor(Math.random() * this.fact.length - 1)];
 };
 // Remove form from screen
 function toggleForm() {
