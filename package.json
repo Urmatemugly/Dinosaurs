@@ -1,0 +1,19 @@
+{
+  "name": "jbarnett-dinographic",
+  "version": "1.0.0",
+  "description": "udacity intermediate javascript project (dinographic)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Urmatemugly/Dinosaurs.git"
+  },
+  "author": "Josh Barnett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Urmatemugly/Dinosaurs/issues"
+  },
+  "homepage": "https://github.com/Urmatemugly/Dinosaurs#readme"
+}
